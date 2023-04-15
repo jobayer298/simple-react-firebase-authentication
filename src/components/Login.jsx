@@ -117,8 +117,7 @@ const Login = () => {
           />
         </label>
       </div>
-      <input className="btn btn-primary my-5" type="submit" value="Login" />
-      <p className="font-medium my-2">
+      <p className="font-medium">
         Forget password?
         <span
           onClick={handleReset}
@@ -127,12 +126,17 @@ const Login = () => {
           Reset Password
         </span>
       </p>
+      <input
+        className="btn btn-primary my-3 px-5"
+        type="submit"
+        value="Login"
+      />
       <div>
         <p
           onClick={handleGoogleSignIn}
           className="flex items-center gap-2  bg-sky-400 p-1 rounded-lg w-[250px] mb-5 cursor-pointer"
         >
-          <span className="text-[20px] rounded-full  bg-white p-1">
+          <span className="text-[20px] rounded-full h-8 w-8 grid place-items-center bg-white p-1">
             <ion-icon name="logo-google"></ion-icon>
           </span>
           <span className="text-white">Sign in with google</span>
@@ -142,7 +146,7 @@ const Login = () => {
           onClick={handleGithubSignIn}
           className="flex items-center gap-2  bg-black p-1 rounded-lg w-[250px] cursor-pointer"
         >
-          <span className="text-[20px] rounded-full  bg-white p-1">
+          <span className="text-[20px] rounded-full h-8 w-8 grid place-items-center  bg-white p-1">
             <ion-icon name="logo-github"></ion-icon>
           </span>
           <span className="text-white">Sign in with github</span>

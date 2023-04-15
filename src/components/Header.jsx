@@ -23,9 +23,12 @@ const Header = () => {
                   />
                 </svg>
               </label>
-             
             </div>
-            <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <Link to="/">
+              <a className="btn btn-ghost normal-case text-3xl">
+                Authentication
+              </a>
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
