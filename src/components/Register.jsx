@@ -49,7 +49,7 @@ const Register = () => {
         onSubmit={handleSubmit}
         className="w-1/2 mx-auto rounded-lg p-6 shadow-2xl"
       >
-        <h2 className="text-3xl font-bold text-cyan-400">
+        <h2 className="text-3xl font-bold text-green-400">
           Please Registration...
         </h2>
         <div className="form-control">
