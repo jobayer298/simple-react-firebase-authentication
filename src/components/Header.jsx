@@ -23,17 +23,7 @@ const Header = () => {
                   />
                 </svg>
               </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a>Item 1</a>
-                </li>
-                <li>
-                  <a>Item 3</a>
-                </li>
-              </ul>
+             
             </div>
             <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
           </div>

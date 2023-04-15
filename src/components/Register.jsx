@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, sendEmailVerification } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import app from "./firebase/firebase.init";
@@ -13,7 +13,8 @@ const Register = () => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+    const name = event.target.name.value;
+    console.log(name, email, password);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
@@ -26,6 +27,15 @@ const Register = () => {
           alert("Please verify you Email!");
           return;
         });
+        updateProfile(result.user, {
+          displayName: name
+        })
+        .then(()=>{
+          console.log("User name updated");
+        })
+        .catch(error =>{
+          setError(error.message)
+        })
       })
       .catch((error) => {
         console.log(error.message);
@@ -42,6 +52,19 @@ const Register = () => {
         <h2 className="text-3xl font-bold text-cyan-400">
           Please Registration...
         </h2>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Your Name</span>
+          </label>
+          <label className="input-group">
+            <input
+              type="text"
+              name="name"
+              placeholder="your Name"
+              className="input input-bordered w-1/2"
+            />
+          </label>
+        </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Your Email</span>
@@ -72,7 +95,7 @@ const Register = () => {
         <p className="font-medium">
           Already have an account?{" "}
           <span className="underline ml-2 text-green-400">
-            <Link to="/login">Login</Link>
+            <Link to="/">Login</Link>
           </span>
         </p>
         <p className="text-green-500 font-medium">
