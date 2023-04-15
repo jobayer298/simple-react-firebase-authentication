@@ -14,6 +14,7 @@ const auth = getAuth(app);
 const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false)
   const emailRef = useRef();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -84,6 +85,10 @@ const Login = () => {
       });
   };
 
+  const handleShowPassword = () =>{
+    setShowPassword(!showPassword);
+  }
+
   return (
     <form
       onSubmit={handleOnsubmit}
@@ -94,13 +99,13 @@ const Login = () => {
         <label className="label">
           <span className="label-text">Your Email</span>
         </label>
-        <label className="input-group">
+        <label className="input-group w-1/2">
           <input
             type="email"
             name="email"
             ref={emailRef}
             placeholder="your Email"
-            className="input input-bordered w-1/2"
+            className="input input-bordered w-full"
           />
         </label>
       </div>
@@ -108,13 +113,23 @@ const Login = () => {
         <label className="label">
           <span className="label-text">Your Password</span>
         </label>
-        <label className="input-group">
+        <label className="input-group relative w-1/2 flex items-center">
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             placeholder="Your Password"
-            className="input input-bordered w-1/2"
+            className="input input-bordered w-full "
           />
+          <p
+            onClick={handleShowPassword}
+            className="absolute right-2 cursor-pointer font-medium text-[19px]"
+          >
+            {showPassword ? (
+              <ion-icon name="eye-outline"></ion-icon>
+            ) : (
+              <ion-icon name="eye-off-outline"></ion-icon>
+            )}
+          </p>
         </label>
       </div>
       <p className="font-medium">
